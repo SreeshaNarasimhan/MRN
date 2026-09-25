@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { FormField } from './FormField';
@@ -51,12 +51,6 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
   const serviceRef = useRef<HTMLSelectElement>(null);
   const dateRef = useRef<HTMLInputElement>(null);
   const timeRef = useRef<HTMLSelectElement>(null);
-
-  useEffect(() => {
-    if (initialServiceFromQuery && !formData.service) {
-      setFormData((prev) => ({ ...prev, service: initialServiceFromQuery }));
-    }
-  }, [initialServiceFromQuery]);
 
   const timeSlots = [
     'Morning (9:00 AM – 12:00 PM)',
